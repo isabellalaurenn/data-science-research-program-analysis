@@ -1,0 +1,14 @@
+---
+title: "README"
+output: html_document
+date: '2022-07-12'
+---
+
+This is a project by Isabella Hidalgo analysing data on the top 5000 albums on Spotify. It uses the Top5000 dataset from [Kaggle](https://www.kaggle.com/datasets/lucascantu/top-5000-albums-of-all-time-spotify-features/versions/1?resource=download).
+
+
+
+Include in your **README**:
+- Your name
+- A description (1-2 sentences) about your dataset
+- A helpful file that acts as a homepage for your project
