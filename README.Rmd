@@ -4,7 +4,7 @@ output: html_document
 date: '2022-07-12'
 ---
 
-This is a project by Isabella Hidalgo analysing data on the top 5000 albums on Spotify. It uses the Top5000 dataset from [Kaggle](https://www.kaggle.com/datasets/lucascantu/top-5000-albums-of-all-time-spotify-features/versions/1?resource=download).
+This is a project by Isabella Hidalgo analysing data on cereal brands and their nutritional content. It uses the cereal dataset from [Kaggle](https://www.kaggle.com/datasets/cavanfernandes/cereal-data).
 
 
 
