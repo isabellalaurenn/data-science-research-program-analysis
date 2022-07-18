@@ -38,3 +38,9 @@ cerealData_small%>%
 #cerealData%>%
   #mutate()
 
+
+#practice using T tests
+pop_mean_cereal <- mean(cerealData$calories_content)
+honeynutcheerios <- filter(cerealData, grain_name == "Honey Nut Cheerios")
+t.test(honeynutcheerios$calories_content, mu = pop_mean)
+
