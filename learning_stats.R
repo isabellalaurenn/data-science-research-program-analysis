@@ -37,3 +37,59 @@ t.test(mu = mean_sepeal_length, x = setosa_sep_len)
 
 #is the p-value less than .05? reject null hyp
 #is the p-value greater than .05? accept null hyp
+
+
+#mon jul 18 notes
+
+sleep_hours <- c(5, 5, 5, 6, 6, 7, 7, 7, 8, 9)
+mean(sleep_hours)
+sd(sleep_hours)
+
+t.test(sleep_hours, mu = 7, alternative = "less")
+#default alt is not equal, specify if you want more or less
+
+
+#using iris data set
+pop_mean <- mean(iris$Sepal.Length)
+
+setosa <- filter(iris, Species == "setosa")
+
+t.test(setosa$Sepal.Length, mu = pop_mean)
+#if the sample mean (of setosa sepal lengths) is  5.843 (the same as the pop_mean)
+# then .00000000000000002% of the time, this difference (or more)
+# will happen by chance
+
+pop_mean2 <- mean(iris$Petal.Length)
+
+versicolor <- filter(iris, Species == "versicolor")
+
+t.test(versicolor$Petal.Length, mu = pop_mean2)
+
+#paired t test
+install.packages("datarium")
+library(datarium)
+mice2
+
+t.test(mice2$before, mice2$after, paired = T)
+
+
+
+#anova
+sepal_len_anova <- aov(data = iris, Sepal.Length ~ Species)
+
+# are any categoriese different
+summary(sepal_len_anova)
+
+#which groups are significanetly differeny
+TukeyHSD(sepal_len_anova)
+
+sepal_width_anova <- aov(data = iris, Sepal.Width ~ Species)
+summary(sepal_width_anova)
+TukeyHSD(sepal_width_anova)
+
+View(diamonds)
+diamond_price_color <- aov(data = diamonds, price ~ color)
+summary(diamond_price_color)
+#save results, use #cat_var
+signif_results <- TukeyHSD(diamond_price_color)$color
+arrange(as.data.frame(signif_results), `p adj`)
