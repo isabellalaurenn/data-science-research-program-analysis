@@ -43,4 +43,24 @@ cerealData_small%>%
 pop_mean_cereal <- mean(cerealData$calories_content)
 honeynutcheerios <- filter(cerealData, grain_name == "Honey Nut Cheerios")
 t.test(honeynutcheerios$calories_content, mu = pop_mean)
+#figure out this issue ^^^
+
+
+#practice with k-means clustering
+
+
+cereal_numerics <- select(cerealData, -grain_name, -Producer, -Variety) %>%
+  scale()
+
+cereal_clusters <- kmeans(cereal_numerics, centers = 3)
+cereal_clusters
+
+cereal_clusters$cluster #vector designating a cluster for each row
+cerealData$cluster <- cereal_clusters$cluster #add a cluster column to original dataset
+head(cerealData)
+
+ggplot(cerealData, aes(x = calories_content, y = fat_content)) +
+  geom_point(aes(color = as.factor(cluster)))
+
+
 
